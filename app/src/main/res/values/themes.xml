@@ -1,0 +1,13 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Tally" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#2196F3</item>
+        <item name="colorPrimaryDark">@color/grey_f3f3f3</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Theme.Tally" parent="Base.Theme.Tally" />
+</resources>
