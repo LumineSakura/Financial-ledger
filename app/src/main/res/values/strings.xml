@@ -44,4 +44,8 @@
     <string name="not_data">暂无数据</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="EnterAccount">请输入账号</string>
+    <string name="EnterPassword">请输入密码</string>
+    <string name="EnterPasswordAgain">请再次输入密码进行确认</string>
+    <string name="ClickRegister">点击注册</string>
 </resources>

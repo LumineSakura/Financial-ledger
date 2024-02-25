@@ -4,7 +4,7 @@ package com.sakura.tally.user;
  * @author : Akubi
  * @date : 2024/2/24 22:41
  */
-public class UserBean {
+public class User {
     /**
      * 判断登录状态
      */
@@ -18,10 +18,10 @@ public class UserBean {
      */
     private String password;
 
-    public UserBean() {
+    public User(String s, String digest, String toString, String string, String s1) {
     }
 
-    public UserBean(int loginOut, String username, String password) {
+    public User(int loginOut, String username, String password) {
         this.loginOut = loginOut;
         this.username = username;
         this.password = password;

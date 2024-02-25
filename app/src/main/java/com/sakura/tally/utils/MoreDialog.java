@@ -20,15 +20,16 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
-import com.sakura.tally.AboutActivity;
 import com.sakura.tally.HistoryActivity;
 import com.sakura.tally.MonthChartActivity;
 import com.sakura.tally.R;
 import com.sakura.tally.SettingActivity;
-import com.sakura.tally.UserActivity;
+import com.sakura.tally.user.UserActivity;
+import com.sakura.tally.user.WelcomeActivity;
 
 
 public class MoreDialog extends Dialog implements View.OnClickListener {
+    MySharePreferences sp;
     Button aboutBtn, settingBtn, historyBtn, infoBtn, userBtn;
     ImageView errorIv;
 
@@ -49,10 +50,14 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
         errorIv = findViewById(R.id.dialog_more_iv);
 
         aboutBtn.setOnClickListener(this);
+        userBtn.setOnClickListener(this);
         settingBtn.setOnClickListener(this);
         historyBtn.setOnClickListener(this);
         infoBtn.setOnClickListener(this);
         errorIv.setOnClickListener(this);
+
+        //自定义的本程序的SharePreferences的工具类
+        sp = new MySharePreferences(this.getContext());
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -60,7 +65,7 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent = new Intent();
         if (v.getId() == R.id.dialog_more_btn_about) {
-            intent.setClass(getContext(), AboutActivity.class);
+            intent.setClass(getContext(), UserActivity.class);
             getContext().startActivity(intent);
         } else if (v.getId() == R.id.dialog_more_btn_setting) {
             intent.setClass(getContext(), SettingActivity.class);
@@ -74,9 +79,16 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
         } else if (v.getId() == R.id.dialog_more_iv) {
 
         } else if (v.getId() == R.id.dialog_more_btn_user) {
-            //    if ()
-            intent.setClass(getContext(), UserActivity.class);
-            getContext().startActivity(intent);
+            //加载MySharePreferences中的isload值
+            boolean isload = sp.loadValueBoolean("isload");
+            //如果isload为true跳转到欢迎界面    false跳转到登录界面
+            if (isload) {
+                intent.setClass(getContext(), WelcomeActivity.class);
+                getContext().startActivity(intent);
+            } else {
+                intent.setClass(getContext(), UserActivity.class);
+                getContext().startActivity(intent);
+            }
         }
         cancel();
     }
