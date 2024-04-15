@@ -20,6 +20,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
+import com.sakura.tally.AboutActivity;
 import com.sakura.tally.HistoryActivity;
 import com.sakura.tally.MonthChartActivity;
 import com.sakura.tally.R;
@@ -65,7 +66,7 @@ public class MoreDialog extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent = new Intent();
         if (v.getId() == R.id.dialog_more_btn_about) {
-            intent.setClass(getContext(), UserActivity.class);
+            intent.setClass(getContext(), AboutActivity.class);
             getContext().startActivity(intent);
         } else if (v.getId() == R.id.dialog_more_btn_setting) {
             intent.setClass(getContext(), SettingActivity.class);
